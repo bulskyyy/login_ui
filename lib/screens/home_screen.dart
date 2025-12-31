@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'order_history_screen.dart';
 import 'payment_screen.dart';
 import 'setting_screen.dart';
+import 'report_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -132,10 +134,22 @@ Widget build(BuildContext context) {
 }
 
 Widget _buildMainContent() {
-  if (selectedMenuIndex == 2) {  
+  // Jika menu Bills (index 1), tampilkan OrderHistoryScreen
+  if (selectedMenuIndex == 1) {
+    return const OrderHistoryScreen();
+  }
+  
+  // Jika menu Settings (index 2), tampilkan SettingScreen
+  if (selectedMenuIndex == 2) {
     return const SettingScreen();
   }
   
+  // Jika menu Reports (index 3), tampilkan ReportsScreen
+  if (selectedMenuIndex == 3) {
+    return const ReportsScreen();
+  }
+  
+  // Menu lain tetap seperti biasa
   return Row(
     children: [
       Expanded(
